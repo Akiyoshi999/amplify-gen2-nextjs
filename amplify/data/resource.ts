@@ -1,4 +1,5 @@
 import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
+import { sayHello } from "../functions/say-hello/resouce";
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -13,6 +14,15 @@ const schema = a.schema({
       isDone: a.boolean(),
     })
     .authorization((allow) => [allow.authenticated()]),
+
+  sayHello: a
+    .query()
+    .arguments({
+      name: a.string(),
+    })
+    .returns(a.json())
+    .authorization((allow) => [allow.authenticated()])
+    .handler(a.handler.function(sayHello)),
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -21,6 +31,7 @@ export const data = defineData({
   schema,
   authorizationModes: {
     defaultAuthorizationMode: "userPool",
+    // defaultAuthorizationMode: "iam",
   },
 });
 

@@ -1,6 +1,6 @@
 "use client";
 import { Schema } from "../../../amplify/data/resource";
-import { Authenticator, Button } from "@aws-amplify/ui-react";
+import { Authenticator, Button, Link } from "@aws-amplify/ui-react";
 import { useEffect, useState } from "react";
 import { client } from "@/utils/generateClient";
 
@@ -51,6 +51,7 @@ export default function TodoList() {
   return (
     <Authenticator>
       <div>
+        <Link href="/func">func page</Link>
         <Button variation="primary" onClick={createTodo}>
           Add new todo
         </Button>
