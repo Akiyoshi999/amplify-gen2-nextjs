@@ -1,6 +1,5 @@
 "use client";
 import { Authenticator, Button } from "@aws-amplify/ui-react";
-import Link from "next/link";
 
 export default function Home() {
   return (
