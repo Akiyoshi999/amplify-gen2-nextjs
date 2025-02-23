@@ -3,3 +3,7 @@
 ```shell
 npm create amplify@latest
 ```
+
+## Lambda
+
+### Lambda Layer
