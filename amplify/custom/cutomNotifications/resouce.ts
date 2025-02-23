@@ -2,6 +2,7 @@ import * as url from "node:url";
 import { Runtime } from "aws-cdk-lib/aws-lambda";
 import * as lambda from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
+import { RetentionDays } from "aws-cdk-lib/aws-logs";
 
 export class CustomNotifications extends Construct {
   public readonly helloWold: lambda.NodejsFunction;
@@ -14,8 +15,10 @@ export class CustomNotifications extends Construct {
       handler: "handler",
       entry: url.fileURLToPath(new URL("helloworld.ts", import.meta.url)),
       environment: {
-        name: "World",
+        Powertools_SERVICE_NAME: "helloWorld",
+        LOG_LEVEL: "INFO",
       },
+      logRetention: RetentionDays.ONE_DAY,
     });
   }
 }
