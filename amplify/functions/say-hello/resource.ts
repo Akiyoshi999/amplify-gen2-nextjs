@@ -7,8 +7,8 @@ export const sayHello = defineFunction({
     POWERTOOLS_SERVICE_NAME: "say-hello",
     LOG_LEVEL: "INFO",
   },
-  layers: {
-    "same-module":
-      "arn:aws:lambda:ap-northeast-1:242201287677:layer:CustomFuncLayerHelloWold39007667:1",
-  },
+  // layers: {
+  //   "same-module":
+  //     "arn:aws:lambda:ap-northeast-1:242201287677:layer:CustomFuncLayerHelloWold39007667:1",
+  // },
 });
