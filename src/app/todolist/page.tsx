@@ -24,7 +24,7 @@ export default function TodoList() {
   };
 
   // const updateTodo = async (id: string) => {
-  const updateTodo = async (todo: Schema["Todo"]["type"][]) => {
+  const updateTodo = async (todo: Schema["Todo"]["type"]) => {
     const { id, isDone } = todo;
     const content = window.prompt("Todo content?");
     if (!content) {
@@ -43,7 +43,7 @@ export default function TodoList() {
   };
 
   const deleteTodo = async (id: string) => {
-    const { data: deletedTodo, errors } = await client.models.Todo.delete({
+    await client.models.Todo.delete({
       id: id,
     });
   };
