@@ -5,13 +5,13 @@ import { Construct } from "constructs";
 import { RetentionDays } from "aws-cdk-lib/aws-logs";
 
 export class CustomNotifications extends Construct {
-  public readonly helloWold: lambda.NodejsFunction;
+  public readonly helloWorld: lambda.NodejsFunction;
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
     // define your custom notifications here
-    this.helloWold = new lambda.NodejsFunction(this, "HelloWold", {
-      runtime: Runtime.NODEJS_18_X,
+    this.helloWorld = new lambda.NodejsFunction(this, "HelloWold", {
+      runtime: Runtime.NODEJS_20_X,
       handler: "handler",
       entry: url.fileURLToPath(new URL("helloworld.ts", import.meta.url)),
       environment: {
