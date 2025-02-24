@@ -4,9 +4,11 @@ frontend:
     preBuild:
       commands:
         - npm ci --cache .npm --prefer-offline
-        - npx ampx pipeline-deploy --branch $BRANCH --app-id $APP_ID
+        - cd amplify/custom/func-layer/layer
+        - ./script.sh
     build:
       commands:
+        - npx ampx pipeline-deploy --branch $BRANCH --app-id $APP_ID
         - npm run build
   artifacts:
     baseDirectory: .next
