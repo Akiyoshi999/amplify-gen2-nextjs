@@ -4,7 +4,6 @@ frontend:
     preBuild:
       commands:
         - npm ci --cache .npm --prefer-offline
-        - cd amplify/custom/func-layer/layer
         - ./script.sh
     build:
       commands:
